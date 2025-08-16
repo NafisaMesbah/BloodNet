@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "89889226093",
+    "project_id": "bloodnet-36060",
+    "storage_bucket": "bloodnet-36060.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89889226093:android:c8a7b5537a3d8213e56e64",
+        "android_client_info": {
+          "package_name": "com.example.bloodnet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJztlIQW-ZAhMuKJ0uBN7GaARKiurXtUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
