@@ -20,10 +20,11 @@ class CommonTextField extends StatelessWidget {
     return TextFormField(
       keyboardType: textInputType,
       controller: controller,
+      obscureText: obscureText ?? false,
       style: Appstyles.normalTextStyle.copyWith(color: Colors.black),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: Appstyles.normalTextStyle.copyWith(color: Colors.black),
+        hintStyle: Appstyles.normalTextStyle.copyWith(color: Colors.grey),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: Colors.black, width: 1.0),
@@ -36,7 +37,7 @@ class CommonTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: Colors.black, width: 1.0),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       ),
     );
   }

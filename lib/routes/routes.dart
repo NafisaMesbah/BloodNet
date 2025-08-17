@@ -1,3 +1,5 @@
+import 'package:bloodnet/Features/authentication/presentation/screens/sign_in_screen.dart';
+import 'package:bloodnet/Features/user_management/presentation/screens/registration_screen.dart';
 import 'package:bloodnet/routes/go_router_refresh_stream.dart';
 import 'package:go_router/go_router.dart';
 import '../Features/user_management/presentation/screens/main_screen.dart';
@@ -30,8 +32,8 @@ GoRouter goRouter(GoRouterRef ref) {
     redirect: (constext, state) {
       final isLoggedIn = firebaseAuth.currentUser != null;
 
-      if (isLoggedIn && state.uri.toString() == '/signIn' ||
-          state.uri.toString() == '/register') {
+      if (isLoggedIn && (state.uri.toString() == '/signIn' ||
+          state.uri.toString() == '/register')) {
         return '/main';
       } else if (!isLoggedIn && state.uri.toString().startsWith('/main')) {
         return '/signIn';
@@ -49,6 +51,19 @@ GoRouter goRouter(GoRouterRef ref) {
         path: '/main',
         name: AppRoutes.main.name,
         builder: (context, state) => const MainScreen(),
+      ),
+      GoRoute(
+        path: '/signIn',
+        name: AppRoutes.signIn.name,
+        builder: (context, state) => const SignInScreen(),
+      ),
+      GoRoute(
+        path: '/register',
+        name: AppRoutes.register.name,
+        builder: (context, state) {
+          final type= state.extra as String;
+          return RegistrationScreen(type);
+        }
       ),
     ],
   );

@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Appstyles {
-  static final headingTextStyle = GoogleFonts.lobsterTwo(
-    fontSize: SizeConfig.getProportionateScreenHeight(20),
+  static final headingTextStyle = TextStyle(
+    fontSize: 20,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
 
-  static final titleTextStyle = GoogleFonts.lobsterTwo(
-    fontSize: SizeConfig.getProportionateScreenHeight(18),
+  static final titleTextStyle = TextStyle(
+    fontSize: 18,
     color: Colors.white,
     fontWeight: FontWeight.w600,
   );
-  static final normalTextStyle = GoogleFonts.lobsterTwo(
-    fontSize: SizeConfig.getProportionateScreenHeight(15),
+  static final normalTextStyle = TextStyle(
+    fontSize: 15,
     color: Colors.white,
     fontWeight: FontWeight.w400,
   );
