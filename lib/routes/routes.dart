@@ -1,5 +1,5 @@
 import 'package:bloodnet/Features/authentication/presentation/screens/sign_in_screen.dart';
-import 'package:bloodnet/Features/user_management/presentation/screens/registration_screen.dart';
+import 'package:bloodnet/Features/authentication/presentation/screens/registration_screen.dart';
 import 'package:bloodnet/routes/go_router_refresh_stream.dart';
 import 'package:go_router/go_router.dart';
 import '../Features/user_management/presentation/screens/main_screen.dart';
