@@ -22,7 +22,7 @@ extension AsyncValueUi on AsyncValue {
           ), //Icon
           title: Text(
             message,
-            style: AppStyles.normalTextStyle
+            style: Appstyles.normalTextStyle
                 .copyWith(color: const Color(0xFF680c07)),
           ), //Text
           actions: [
@@ -35,9 +35,9 @@ extension AsyncValueUi on AsyncValue {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text(
+                  child: Text(
                     'Close',
-                    style: AppStyles.normalTextStyle,
+                    style: Appstyles.normalTextStyle,
                   ), //Text
                 ), //ElevatedButton
               ],
