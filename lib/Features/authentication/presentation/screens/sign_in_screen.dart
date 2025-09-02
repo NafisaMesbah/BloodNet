@@ -1,3 +1,4 @@
+import 'package:bloodnet/common_widgets/async_value_ui.dart';
 import 'package:bloodnet/common_widgets/common_button.dart';
 import 'package:bloodnet/common_widgets/common_text_field.dart';
 import 'package:bloodnet/routes/routes.dart';
@@ -32,6 +33,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+    final state= ref.watch(authControllerProvider);
+
+    ref.listen<AsyncValue>(authControllerProvider, (_, state){
+      state.showAlertDialogOnError(context);
+    });
     return Scaffold( // Wrap with Scaffold
       backgroundColor: Appstyles.mainColor, // Set backgroundColor here
       body: SafeArea(
@@ -82,7 +88,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
                     },
                     title: 'Sign In',
-                    isLoading: false, // Change to true if loading state is needed
+                    isLoading: state.isLoading, // Change to true if loading state is needed
                   ),
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(15)),
                   Text(

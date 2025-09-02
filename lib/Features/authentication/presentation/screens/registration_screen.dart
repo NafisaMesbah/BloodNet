@@ -1,3 +1,4 @@
+import 'package:bloodnet/common_widgets/async_value_ui.dart';
 import 'package:flutter/cupertino.dart%20';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import '../../../../common_widgets/common_text_field.dart';
 import '../../../../routes/routes.dart';
 import '../../../../util/appstyles.dart';
 import '../../../../util/size_config.dart';
+import '../../../authentication/presentation/controllers/auth_controller.dart';
 
 
 class RegistrationScreen extends ConsumerStatefulWidget{
@@ -57,6 +59,11 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen>{
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+    final state= ref.watch(authControllerProvider);
+
+    ref.listen<AsyncValue>(authControllerProvider, (_, state){
+      state.showAlertDialogOnError(context);
+    });
     return Scaffold( // Wrap with Scaffold
       backgroundColor: Appstyles.mainColor, // Set backgroundColor here
       body: SafeArea(
@@ -149,9 +156,25 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen>{
                   ),
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(10)),
                   CommonButton(
-                    onTap: () {},
+                    onTap: () {
+                      final email = _emailController.text.toString();
+                      final password = _passwordController.text.toString();
+                      final name = _nameController.text.toString();
+                      final phoneNumber =
+                      _phoneNumberController.text.toString();
+
+                      ref
+                          .read(authControllerProvider.notifier)
+                          .createUserWithEmailAndPassword(
+                          email: email,
+                          password: password,
+                          name: name,
+                          phoneNumber: phoneNumber,
+                          bloodGroup: _selectedBloodGroup!,
+                          type: widget.type);
+                    },
                     title: 'Register Me Now',
-                    isLoading: false, // Change to true if loading state is needed
+                    isLoading: state.isLoading, // Change to true if loading state is needed
                   ),
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(15)),
                   Text(
