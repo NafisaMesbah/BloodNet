@@ -1,22 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
-import '../../../../util/appstyles.dart';
-import '../widgets/main_drawer.dart';
 
-class MainScreen extends ConsumerWidget {
-  const MainScreen({super.key});
+import '../../../../util/appstyles.dart';
+
+class BloodGroupSelectedScreen extends ConsumerWidget {
+  const BloodGroupSelectedScreen(this.bloodGroup,{super.key});
+
+  final String bloodGroup;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
-          'Blood Donation',
-          style: Appstyles.headingTextStyle,
-        ), //Text
+        title: Text(
+          'Blood Group: $bloodGroup',
+          style: Appstyles.titleTextStyle,
+        ), // Text
       ), // AppBar
-      drawer: const MainDrawer(),
     ); // Scaffold
   }
 }
-
