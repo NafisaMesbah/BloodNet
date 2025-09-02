@@ -1,7 +1,9 @@
+import 'package:bloodnet/Features/authentication/presentation/screens/account_screen.dart';
 import 'package:bloodnet/Features/authentication/presentation/screens/sign_in_screen.dart';
 import 'package:bloodnet/Features/user_management/presentation/screens/registration_screen.dart';
 import 'package:bloodnet/routes/go_router_refresh_stream.dart';
 import 'package:go_router/go_router.dart';
+import '../Features/user_management/presentation/screens/blood_group_selected_screen.dart';
 import '../Features/user_management/presentation/screens/main_screen.dart';
 import '../splash/splash_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -51,6 +53,21 @@ GoRouter goRouter(GoRouterRef ref) {
         path: '/main',
         name: AppRoutes.main.name,
         builder: (context, state) => const MainScreen(),
+        routes: [
+          GoRoute(
+              path: '/bloodGroupSelected',
+              name: AppRoutes.bloodGroupSelected.name,
+              builder: (context, state) {
+                final bloodGroup= state.extra as String;
+                return BloodGroupSelectedScreen(bloodGroup);
+              }
+          ),
+          GoRoute(
+            path: '/account',
+            name: AppRoutes.account.name,
+            builder: (context, state) => const AccountScreen(),
+          ),
+        ]
       ),
       GoRoute(
         path: '/signIn',
