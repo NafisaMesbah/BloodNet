@@ -8,7 +8,7 @@ import '../../../../routes/routes.dart';
 import '../../../../util/appstyles.dart';
 import '../../../../util/size_config.dart';
 import '../../../authentication/data/auth_repository.dart';
-import '../../domain/app_user.dart';
+import '../../../authentication/domain/app_user.dart';
 
 class MainDrawer extends ConsumerWidget{
   const MainDrawer({super.key});
@@ -28,10 +28,10 @@ class MainDrawer extends ConsumerWidget{
         data: (userData) {
           return SafeArea(
             child: Drawer(
-              child: Column(
+              child: ListView(
+                padding: EdgeInsets.all(15),
                 children: [
-                  DrawerHeader(
-                    child: Container(
+                  Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Appstyles.mainColor,
@@ -46,7 +46,7 @@ class MainDrawer extends ConsumerWidget{
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            'assets/logo.png',
+                            'assets/bloodnet2.png',
                             height: SizeConfig.getProportionateScreenHeight(40),
                             width: SizeConfig.getProportionateScreenWidth(40),
                             fit: BoxFit.cover,
@@ -66,7 +66,7 @@ class MainDrawer extends ConsumerWidget{
                         ],
                       ), // Column
                     ), // Container
-                  ), // DrawerHeader
+                   // DrawerHeader
                   Expanded(
                     child: Container(
                       width: double.infinity,

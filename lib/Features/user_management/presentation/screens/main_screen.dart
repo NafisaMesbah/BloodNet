@@ -11,7 +11,7 @@ class MainScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title:  Text(
-          'Blood Donation',
+          'Main Screen',
           style: Appstyles.headingTextStyle,
         ), //Text
       ), // AppBar

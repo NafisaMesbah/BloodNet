@@ -7,7 +7,7 @@ import '../util/appstyles.dart';
 
 extension AsyncValueUi on AsyncValue {
   void showAlertDialogOnError(BuildContext context){
-    if (isLoading && hasError) {
+    if (!isLoading && hasError) {
       if(ModalRoute.of(context)?.isCurrent == false) {
         return;
       }

@@ -7,7 +7,7 @@ import '../../../../common_widgets/common_button.dart';
 import '../../../../routes/routes.dart';
 import '../../../../util/appstyles.dart';
 import '../../../../util/size_config.dart';
-import '../../../user_management/domain/app_user.dart';
+import '../../domain/app_user.dart';
 import '../../data/auth_repository.dart';
 
 
@@ -91,7 +91,7 @@ class AccountScreen extends ConsumerWidget {
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(20)),
                   Image.asset(
                     userData.type == 'Donor'
-                        ? 'assets/donar.png'
+                        ? 'assets/donor.png'
                         : 'assets/recipient.png',
                     height: SizeConfig.getProportionateScreenHeight(100),
                     width: SizeConfig.getProportionateScreenWidth(100),
