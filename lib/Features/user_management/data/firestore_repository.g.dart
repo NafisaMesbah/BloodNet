@@ -9,7 +9,6 @@ part of 'firestore_repository.dart';
 String _$firestoreRepositoryHash() =>
     r'ae97bc6ef75bfe7811abd869d6a1ccd1b44b0e86';
 
-
 /// See also [firestoreRepository].
 @ProviderFor(firestoreRepository)
 final firestoreRepositoryProvider =
@@ -320,6 +319,128 @@ class _LoadSimilarBloodGroupsProviderElement
   @override
   String get bloodGroup =>
       (origin as LoadSimilarBloodGroupsProvider).bloodGroup;
+}
+
+String _$loadEmailedUserIdsHash() =>
+    r'21571cb5af3129b55be0154fdbd5d203da528cd0';
+
+/// See also [loadEmailedUserIds].
+@ProviderFor(loadEmailedUserIds)
+const loadEmailedUserIdsProvider = LoadEmailedUserIdsFamily();
+
+/// See also [loadEmailedUserIds].
+class LoadEmailedUserIdsFamily extends Family<AsyncValue<List<String>>> {
+  /// See also [loadEmailedUserIds].
+  const LoadEmailedUserIdsFamily();
+
+  /// See also [loadEmailedUserIds].
+  LoadEmailedUserIdsProvider call(String userId) {
+    return LoadEmailedUserIdsProvider(userId);
+  }
+
+  @override
+  LoadEmailedUserIdsProvider getProviderOverride(
+    covariant LoadEmailedUserIdsProvider provider,
+  ) {
+    return call(provider.userId);
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadEmailedUserIdsProvider';
+}
+
+/// See also [loadEmailedUserIds].
+class LoadEmailedUserIdsProvider
+    extends AutoDisposeStreamProvider<List<String>> {
+  /// See also [loadEmailedUserIds].
+  LoadEmailedUserIdsProvider(String userId)
+    : this._internal(
+        (ref) => loadEmailedUserIds(ref as LoadEmailedUserIdsRef, userId),
+        from: loadEmailedUserIdsProvider,
+        name: r'loadEmailedUserIdsProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$loadEmailedUserIdsHash,
+        dependencies: LoadEmailedUserIdsFamily._dependencies,
+        allTransitiveDependencies:
+            LoadEmailedUserIdsFamily._allTransitiveDependencies,
+        userId: userId,
+      );
+
+  LoadEmailedUserIdsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.userId,
+  }) : super.internal();
+
+  final String userId;
+
+  @override
+  Override overrideWith(
+    Stream<List<String>> Function(LoadEmailedUserIdsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: LoadEmailedUserIdsProvider._internal(
+        (ref) => create(ref as LoadEmailedUserIdsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        userId: userId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamProviderElement<List<String>> createElement() {
+    return _LoadEmailedUserIdsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadEmailedUserIdsProvider && other.userId == userId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin LoadEmailedUserIdsRef on AutoDisposeStreamProviderRef<List<String>> {
+  /// The parameter `userId` of this provider.
+  String get userId;
+}
+
+class _LoadEmailedUserIdsProviderElement
+    extends AutoDisposeStreamProviderElement<List<String>>
+    with LoadEmailedUserIdsRef {
+  _LoadEmailedUserIdsProviderElement(super.provider);
+
+  @override
+  String get userId => (origin as LoadEmailedUserIdsProvider).userId;
 }
 
 // ignore_for_file: type=lint

@@ -1,3 +1,4 @@
+import 'package:bloodnet/Features/user_management/domain/app_notification.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../authentication/domain/app_user.dart';
@@ -41,6 +42,61 @@ class FirestoreRepository{
         .toList());
 
   }
+  Future<void>saveIdsToDatabase(
+      {required String recipientId, required String donorId}) async{
+    await _firestore
+        .collection('emails')
+        .doc(recipientId)
+        .collection('users emailed')
+        .add({donorId: true});
+
+    await _firestore
+        .collection('emails')
+        .doc(donorId)
+        .collection('users emailed')
+        .add({recipientId: true});
+  }
+
+  Future<void>addNotifications(
+      {required String recipientId,
+        required String donorId ,
+        required AppNotification appNotification}) async {
+    await _firestore
+        .collection('notifications')
+        .doc(donorId)
+        .collection('user notifications')
+        .add(appNotification.toMap());
+    await _firestore
+        .collection('notifications')
+        .doc(recipientId)
+        .collection('user notifications')
+        .add(appNotification.toMap());
+  }
+
+  Stream<List<AppNotification>> loadNotifications(String userId){
+    return _firestore
+        .collection('notifications')
+        .doc(userId)
+        .collection('user notifications')
+        .snapshots()
+        .map((querySnapshot) => querySnapshot.docs
+        .map((doc)=>AppNotification.fromMap(doc.data()))
+        .toList());
+  }
+
+  Stream<List<String>> loadEmailedUserIds(String userId){
+    return _firestore
+        .collection('emails')
+        .doc(userId)
+        .collection('users emailed')
+        .snapshots()
+        .map((querySnapshot) {
+          return querySnapshot.docs
+              .map((doc) => doc.data().keys.toList())
+              .expand((keys) => keys)
+              .toList();
+    });
+  }
 }
 
 @riverpod
@@ -66,4 +122,13 @@ Stream<List<AppUser>>loadSimilarBloodGroups(
   final firestoreRepository = ref.watch(firestoreRepositoryProvider);
   return firestoreRepository.loadSimilarBloodGroups(bloodGroup);
 }
+
+
+@riverpod
+Stream<List<String>> loadEmailedUserIds(
+    LoadEmailedUserIdsRef ref, String userId){
+  final firestoreRepository = ref.watch(firestoreRepositoryProvider);
+  return firestoreRepository.loadEmailedUserIds(userId);
+}
+
 
