@@ -347,7 +347,7 @@ class MainDrawer extends ConsumerWidget{
                                   ),
                                 ), //Text
                               ), //ListTile
-                              const Divider(
+                              /*const Divider(
                                 color: Colors.white,
                                 height: 2,
                               ), // Divider
@@ -382,7 +382,7 @@ class MainDrawer extends ConsumerWidget{
                                     fontSize: 17.0,
                                   ),
                                 ), //Text
-                              ), //ListTile
+                              ),*/ //ListTile
                             ],
                           ), // Column
                         ), // Padding
