@@ -137,7 +137,8 @@ class MainDrawer extends ConsumerWidget{
                                 ), // Text
                                 onTap:() {
                                   context.goNamed(
-                                      AppRoutes.bloodGroupSelected.name
+                                      AppRoutes.bloodGroupSelected.name,
+                                      extra: userData.bloodGroup,
                                   );
                                 },
                               ), //ListTile
