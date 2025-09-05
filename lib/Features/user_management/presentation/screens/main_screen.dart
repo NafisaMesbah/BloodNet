@@ -10,8 +10,8 @@ class MainScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
-          'Main Screen',
+        title: Text(
+          'Blood Net',
           style: Appstyles.headingTextStyle,
         ), //Text
       ), // AppBar
