@@ -11,8 +11,8 @@ class MailRepository {
         required String recipientName,
         required String recipientPhone,
         required String recipientBloodGroup,}) async {
-    const String username = 'subaita630@gmail.com';
-    const String password = '';
+    const String username = 'bloodnet464@gmail.com';
+    const String password = 'szql glxw afib lnah';
 
     final smtpServer = gmail(username, password);
 
