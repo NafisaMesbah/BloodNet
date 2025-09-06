@@ -443,5 +443,129 @@ class _LoadEmailedUserIdsProviderElement
   String get userId => (origin as LoadEmailedUserIdsProvider).userId;
 }
 
+String _$loadNotificationsHash() => r'4ebaec9e004878a6a27851ed82d59f6204ba758e';
+
+/// See also [loadNotifications].
+@ProviderFor(loadNotifications)
+const loadNotificationsProvider = LoadNotificationsFamily();
+
+/// See also [loadNotifications].
+class LoadNotificationsFamily
+    extends Family<AsyncValue<List<AppNotification>>> {
+  /// See also [loadNotifications].
+  const LoadNotificationsFamily();
+
+  /// See also [loadNotifications].
+  LoadNotificationsProvider call(String userId) {
+    return LoadNotificationsProvider(userId);
+  }
+
+  @override
+  LoadNotificationsProvider getProviderOverride(
+    covariant LoadNotificationsProvider provider,
+  ) {
+    return call(provider.userId);
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadNotificationsProvider';
+}
+
+/// See also [loadNotifications].
+class LoadNotificationsProvider
+    extends AutoDisposeStreamProvider<List<AppNotification>> {
+  /// See also [loadNotifications].
+  LoadNotificationsProvider(String userId)
+    : this._internal(
+        (ref) => loadNotifications(ref as LoadNotificationsRef, userId),
+        from: loadNotificationsProvider,
+        name: r'loadNotificationsProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$loadNotificationsHash,
+        dependencies: LoadNotificationsFamily._dependencies,
+        allTransitiveDependencies:
+            LoadNotificationsFamily._allTransitiveDependencies,
+        userId: userId,
+      );
+
+  LoadNotificationsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.userId,
+  }) : super.internal();
+
+  final String userId;
+
+  @override
+  Override overrideWith(
+    Stream<List<AppNotification>> Function(LoadNotificationsRef provider)
+    create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: LoadNotificationsProvider._internal(
+        (ref) => create(ref as LoadNotificationsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        userId: userId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamProviderElement<List<AppNotification>> createElement() {
+    return _LoadNotificationsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadNotificationsProvider && other.userId == userId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin LoadNotificationsRef
+    on AutoDisposeStreamProviderRef<List<AppNotification>> {
+  /// The parameter `userId` of this provider.
+  String get userId;
+}
+
+class _LoadNotificationsProviderElement
+    extends AutoDisposeStreamProviderElement<List<AppNotification>>
+    with LoadNotificationsRef {
+  _LoadNotificationsProviderElement(super.provider);
+
+  @override
+  String get userId => (origin as LoadNotificationsProvider).userId;
+}
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

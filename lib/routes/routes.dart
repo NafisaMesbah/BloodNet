@@ -5,6 +5,8 @@ import 'package:bloodnet/routes/go_router_refresh_stream.dart';
 import 'package:go_router/go_router.dart';
 import '../Features/user_management/presentation/screens/blood_group_selected_screen.dart';
 import '../Features/user_management/presentation/screens/main_screen.dart';
+import '../Features/user_management/presentation/screens/notifications_screen.dart';
+import '../Features/user_management/presentation/screens/users_emailed_screen.dart';
 import '../splash/splash_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -31,7 +33,7 @@ GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
     initialLocation: '/splash',
     debugLogDiagnostics: true,
-    redirect: (constext, state) {
+    redirect: (context, state) {
       final isLoggedIn = firebaseAuth.currentUser != null;
 
       if (isLoggedIn && (state.uri.toString() == '/signIn' ||
@@ -66,6 +68,16 @@ GoRouter goRouter(GoRouterRef ref) {
             path: '/account',
             name: AppRoutes.account.name,
             builder: (context, state) => const AccountScreen(),
+          ),
+          GoRoute(
+            path: '/notification',
+            name: AppRoutes.notification.name,
+            builder: (context, state) => const NotificationScreen(),
+          ),
+          GoRoute(
+            path: '/emailedUser',
+            name: AppRoutes.emailedUser.name,
+            builder: (context, state) => const UsersEmailedScreen(),
           ),
         ]
       ),

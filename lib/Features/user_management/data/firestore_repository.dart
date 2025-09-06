@@ -131,4 +131,11 @@ Stream<List<String>> loadEmailedUserIds(
   return firestoreRepository.loadEmailedUserIds(userId);
 }
 
+@riverpod
+Stream<List<AppNotification>> loadNotifications(
+    LoadNotificationsRef ref, String userId) {
+  final firestoreRepository = ref.watch(firestoreRepositoryProvider);
+  return firestoreRepository.loadNotifications(userId);
+}
+
 
