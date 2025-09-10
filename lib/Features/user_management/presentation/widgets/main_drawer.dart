@@ -158,8 +158,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/aplus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 40.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'A Positive',
@@ -177,8 +177,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/aminus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 45.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'A Negative',
@@ -196,8 +196,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/bplus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 40.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'B Positive',
@@ -215,8 +215,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/bminus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 60.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'B Negative',
@@ -234,8 +234,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/abplus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 70.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'AB Positive',
@@ -253,8 +253,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/abminus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 90.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'AB Negative',
@@ -272,8 +272,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/oplus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 50.0,
+                                  width: 40.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'O Positive',
@@ -291,8 +291,8 @@ class MainDrawer extends ConsumerWidget{
                                 },
                                 leading: Image.asset(
                                   'assets/ominus.png',
-                                  height: 30.0,
-                                  width: 30.0,
+                                  height: 45.0,
+                                  width: 38.0,
                                 ), //Image.asset
                                 title:  Text(
                                   'O Negative',
