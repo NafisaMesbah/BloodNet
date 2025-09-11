@@ -27,7 +27,7 @@ class BloodGroupSelectedScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Same Blood Group As Me',
+          'Blood Group: $bloodGroup',
           style: Appstyles.titleTextStyle,
         ), // Text
       ), // AppBar
